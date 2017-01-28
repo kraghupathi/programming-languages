@@ -1,0 +1,142 @@
+* Recursion
+Recursion is the process of repeating items in a self-similar way. Same applies in
+programming languages as well where if a programming allows you to call a function inside
+the same function that is called *recursive call* of the function as follows.
+#+BEGIN_EXAMPLE
+void recursion()
+{
+recursion(); /* function calls itself */
+}
+int main()
+{
+recursion();
+}
+#+END_EXAMPLE
+The two basic phases of a recursive process: 
+ - winding(recursive or tail part) 
+ - unwinding(basic or terminating part).
+
+In the winding phase, each recursive call perpetuates the recursion by making anadditional recursive call itself. The winding phase 
+terminates when one of the calls reaches a terminating condition. 
+A terminating condition defines the state at which a recursive function should return instead of making another recursive call .
+Every recursive function must have at least one terminating condition otherwise, the winding phase never terminates. Once the 
+winding phase is complete, the process enters the unwinding phase, in which previous instances of the function are revisited in 
+reverse order. This phase continues until the original call returns, at which
+point the recursive process is complete. 
+
+ *Note:* In the recursion process we use the stack principle(Last­In­First­Out)
+  to obtain the result.
+** Types of Recursion
+ - Basic Recursion
+ - Tail Recursion
+*** Basic Recursion
+Example for Basic Recursion:
+#+BEGIN_EXAMPLE
+#include<stdio.h> 
+main(){ 
+int a,f; 
+printf("Enter a no: "); 
+scanf("%d",&a); 
+f=fact(a); 
+printf("%d\n",f); 
+} 
+fact(int x){ 
+if(x==0) 
+return 1; 
+else 
+return x*fact(x­1); 
+ 
+}
+#+END_EXAMPLE
+*** Tail Recursion
+A recursive function is said to be tail recursive if all recursive calls within
+it are tail recursive. A recursive call is tail recursive when it is the last
+statement that will be executed within the body of a function and its return
+value is not a part of an expression. Tail­recursive functions are
+characterized as having nothing to do during the unwinding phase.
+
+Example for Tail Recursion:
+#+BEGIN_EXAMPLE
+#include<stdio.h> 
+main(){ 
+int a,f,b=1; 
+printf("Enter a no: "); 
+scanf("%d",&a); 
+f=fact(a,b); 
+printf("%d\n",f); 
+} 
+fact(int x,int y){ 
+if(x==0) 
+return y; 
+else 
+return fact(x­1,x*y); 
+}
+#+END_EXAMPLE
+** Features
+ - There should be at least one if statement used to terminate recursion. 
+ - It does not contain any looping statements. 
+** Advantages
+ - It is easy to use. 
+ - It represents compact programming strctures. 
+** Disadvantages
+ - It is slower than that of looping statements because each time function is called. 
+
+ *Note* : It can be applied to calculate factorial of a number, fibonancci
+  series,GCD of integers.
+
+** Number Factorial
+Following is an example, which calculates factorial for a given number using a recursive
+function:
+#+BEGIN_EXAMPLE
+#include <stdio.h>
+int factorial(unsigned int i)
+{
+if(i <= 1)
+{
+return 1;
+}
+return i * factorial(i - 1);
+}
+int main()
+{
+int i = 15;
+printf("Factorial of %d is %d\n", i, factorial(i));
+return 0;
+}
+#+END_EXAMPLE
+When the above code is compiled and executed, it produces the following result:
+#+BEGIN_EXAMPLE
+Factorial of 15 is 2004310016
+#+END_EXAMPLE
+** Fibonacci Series
+Following is another example, which generates Fibonacci series for a given number using a
+recursive function:
+#+BEGIN_EXAMPLE
+#include <stdio.h>
+int fibonaci(int i)
+{
+if(i == 0)
+{
+return 0;
+}
+if(i == 1)
+{
+return 1;
+}
+return fibonaci(i-1) + fibonaci(i-2);
+}
+int
+{
+main()
+int i;
+for (i = 0; i < 10; i++)
+{
+printf("%d\t%n", fibonaci(i));
+}
+return 0;
+}
+#+END_EXAMPLE
+When the above code is compiled and executed, it produces the following result:
+#+BEGIN_EXAMPLE
+0 1 1 2 3 5 8 13 21 34
+#+END_EXAMPLE
