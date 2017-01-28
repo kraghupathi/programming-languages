@@ -1,0 +1,191 @@
+* Storage class
+'Storage' refers to the scope of a variable and memory allocated by compiler to
+store that variable. Scope of a variable is the boundary within which a
+variable can be used. Storage class defines the scope and lifetime of a
+variable.
+
+From the point view of C compiler, a variable name identifies physical location
+from a computer where varaible is stored. There are two memory locations in a
+computer system where variables are stored as : Memory and CPU Registers.
+
+* Functions of storage class
+ - To detemine the location of a variable where it is stored ?
+ - Set initial value of a variable or if not specified then setting it to default value.
+ - Defining scope of a variable.
+ - To determine the life of a variable.
+* Types of Storage Classes 
+Storage classes are categorised in 4 (four) types as:
+ + Automatic Storage Class
+ + Register Storage Class
+ + Static Storage Class
+ + External Storage Class
+** Automatic Storage Class
+ + *Keyword* : auto 
+ + *Storage Location* : Main memory 
+ + *Initial Value* : Garbage Value 
+ + *Life* : Control remains in a block where it is defined. 
+ + *Scope* : Local to the block in which variable is declared. 
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+auto [data_type] [variable_name];        
+#+END_EXAMPLE
+ *Example* :
+#+BEGIN_EXAMPLE
+auto int a;
+#+END_EXAMPLE
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h>
+#include <conio.h>
+void main()
+{
+        auto int i=10;
+        {
+                auto int i=20;
+printf("\n\t %d",i);
+        }
+        printf("\n\t %d",i);
+}
+#+END_EXAMPLE
+ *Output* : 20
+
+10
+** Register Storage Class
+ + *Keyword* : register 
+ + *Storage Location* : CPU Register 
+ + *Initial Value* : Garbage 
+ + *Life* : Local to the block in which variable is declared. 
+ + *Scope* : Local to the block. 
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+register [data_type] [variable_name];
+#+END_EXAMPLE
+ *Example* :
+#+BEGIN_EXAMPLE
+register int a;
+#+END_EXAMPLE
+ When the calculations are done in CPU, then the value of variables are
+transferred from main memory to CPU. Calculations are done and the final result
+is sent back to main memory. This leads to slowing down of processes.
+
+Register variables occur in CPU and value of that register variable is stored
+in a register within that CPU. Thus, it increases the resultant speed of
+operations. There is no waste of time, getting variables from memory and
+sending it to back again.
+
+It is not applicable for arrays, structures or pointers.
+
+It cannot not used with static or external storage class.
+
+Unary and address of (&) cannot be used with these variables as explicitly or
+implicitly.
+
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h>
+#include <conio.h>
+void main()
+{
+        register int i=10;
+        {
+                register int i=20;
+                printf("\n\t %d",i);
+        }
+        printf("\n\t %d",i);
+}
+#+END_EXAMPLE
+ *Output* :20
+
+10
+** Static Storage Class
+ + *Keyword* : static 
+ + *Storage Location* : Main memory 
+ + *Initial Value* : Zero and can be initialize once only. 
+ + *Life* : depends on function calls and the whole application or program. 
+ + *Scope* : Local to the block. 
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+static [data_type] [variable_name];
+#+END_EXAMPLE
+ *Example* :
+#+BEGIN_EXAMPLE
+static int a;
+#+END_EXAMPLE
+There are two types of static variables as
+ - Local Static Variable
+ - Global Static Variable
+
+Static storage class can be used only if we want the value of a variable to
+persist between different function calls.
+
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h>
+#include <conio.h>
+void main()
+{
+        int i;
+        void incre(void);
+        for (i=0; i<3; i++)
+        incre();
+}
+void incre(void)
+{
+        int avar=1;
+        static int svar=1;
+        avar++;
+svar++;
+        printf("\n\n Automatic variable value : %d",avar);
+        printf("\t Static variable value : %d",svar);
+}
+#+END_EXAMPLE
+ *Output* :
+Automatic variable value : 2    Static variable value : 2
+
+Automatic variable value : 2    Static variable value : 3
+
+Automatic variable value : 2    Static variable value : 4
+** External Storage Class
+ + *Keyword *: extern 
+ + *Storage Location* : Main memory 
+ + *Initial Value* : Zero 
+ + *Life* : Until the program ends. 
+ + *Scope* : Global to the program.
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+extern [data_type] [variable_name];
+#+END_EXAMPLE
+ *Example* :
+#+BEGIN_EXAMPLE
+extern int a;
+#+END_EXAMPLE
+The variable access time is very fast as compared to other storage classes. But
+few registers are available for user programs.
+
+The variables of this class can be referred to as 'global or external variables.' They are declared outside the functions and can be 
+invoked at anywhere in a program.
+
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h>
+#include <conio.h>
+extern int i=10;
+void main()
+{
+        int i=20;
+        void show(void);
+        printf("\n\t %d",i);
+        show();
+}
+void show(void)
+{
+        printf("\n\t %d",i);
+}
+#+END_EXAMPLE
+ *Output* : 20
+
+10
