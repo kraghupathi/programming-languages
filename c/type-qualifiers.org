@@ -1,0 +1,31 @@
+* Type Qualifiers
+The keywords which are used to modify the properties of a variable are called type qualifiers.
+
+* Types of C Type Qualifiers:
+There are two types of qualifiers available in C language. They are,
+ - const
+ - volatile
+** CONST KEYWORD:
+ - Constants are also like normal variables. But, only difference is, their
+   values can¡¯t be modified by the program once they are defined.
+ - They refer to fixed values. They are also called as literals.
+ - They may be belonging to any of the data type.
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+const data_type variable_name; (or) const data_type *variable_name;
+#+END_EXAMPLE
+** VOLATILE KEYWORD:
+ - When a variable is defined as volatile, the program may not change the value
+   of the variable explicitly.
+ - But, these variable values might keep on changing without any explicit
+   assignment by the program. These types of qualifiers are called volatile.
+ - For example, if global variable¡¯s address is passed to clock routine of the
+   operating system to store the system time, the value in this address keep on
+   changing without any assignment by the program. These variables are named as
+   volatile variable.
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+volatile data_type variable_name; (or) volatile data_type *variable_name;
+#+END_EXAMPLE
