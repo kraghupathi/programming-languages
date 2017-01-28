@@ -1,0 +1,302 @@
+* Functions
+ - A function is a block of statements, which is used to perform a specific task.
+ - A C program has at least one function named main().
+ - C program does not execute the functions directly. It is required to invoke
+   or call that functions. When a function is called in a program then program
+   control goes to the function body. Then, it executes the statements which
+   are involved in a function body.  Therefore, it is possible to call fuction
+   whenever we want to process that functions statements.
+** Types of Functions
+There are two type of functions in C
+ + Library function
+ + User defined function
+
+*** Library function
+These functions are also called as 'Built in functions'. These functions are provided by system. These functions are stored in library 
+files. 
+
+Examples:
+ 
+ + scanf() 
+ + printf() 
+ + strcpy ()
+ + tolower ()
+ + toupper()
+ + strcmp ()
+ + strlen ()
+ + strcat ()
+*** User Defined Functions 
+The functions which are created by user for program are known as 'User defined
+functions.
+
+ *Syntax*:
+#+BEGIN_EXAMPLE
+void main() 
+{ 
+ 
+<return_type><function_name>([<argu_list>]); // Function prototype
+<function_name>([<arguments>]); // Function Call 
+} 
+<return_type> <function_name>([<argu_list>]) // Function definition 
+{ 
+<function_body>; 
+}
+#+END_EXAMPLE
+
+ *returned_type* : return types are the type of data that is returned by the
+  function. If nothing is retruned then the type is void
+
+ *argument lise* : argument list contains variables names along with their data
+  types. These arguments are inputs for the function.
+
+ *Syntax* :
+
+#+BEGIN_EXAMPLE
+#include <stdio.h>
+
+void function_name()
+{
+  //code
+}
+
+int main()
+{
+ //Calling function
+ function_name()
+}
+#+END_EXAMPLE
+ *Example1* :
+#+BEGIN_EXAMPLE
+/* function return type is void and doesn't have parameters */
+void demo()
+{
+  printf("Hello World");
+}
+int main()
+{
+ /*calling function */
+ demo();
+ return 0;
+}
+#+END_EXAMPLE
+ *Output* :
+ Hello World
+
+ *Explanation* :
+ *demo()* : is a user defines function, and *main()*.
+
+ *demo()* : function is called so that it can perform its task.
+
+ *Example2*:
+#+BEGIN_EXAMPLE
+#include <stdio.h> 
+#include <conio.h> 
+void add() 
+{ 
+int a, b, c; 
+printf("\n Enter Any 2 Numbers : "); 
+scanf("%d %d",&a,&b); 
+c = a + b; 
+printf("\n Addition is : %d",c); 
+} 
+void main() 
+{ 
+void add(); 
+add(); 
+} 
+#+END_EXAMPLE
+ *output* :
+Enter Any 2 Numbers : 23 6 
+
+Addition is : 29
+
+** Advantages
+ - It is easy to use. 
+ - Debugging is more suitable for programs. 
+ - It reduces the size of a program. 
+ - It is easy to understand the actual logic of a program. 
+ - Highly suited in case of large programs. 
+ - By using functions in a program, it is possible to construct modular and structured programs.
+ - Reusability
+
+** Function declaration
+A function declaration tells the compiler about a function name. The actual
+body of the function can be defined separately.
+
+ *Example* :
+#+BEGIN_EXAMPLE
+/* function declaration */
+int main()
+{ 
+  /* local variable definition */
+  int a=10;
+  int b=20;
+  int s;
+
+  /* calling a function to get sum of the numbers */
+  s=sum(a,b);
+  printf("Sum of the number is : %\n, s);
+  return 0;
+}
+  /* function returning the sum of the two numbers */
+int sum(int num1, int num2)
+{
+  /* local variable declaration */
+  int result;
+  result=num1+num2;
+  return result;
+}
+#+END_EXAMPLE
+ *Output* :
+ 
+ Sum of the number is : 30
+
+ *Explanation* :
+
+ The function is declared first and then it is defined. The *main()* calls the
+ function *sum()* and passes two arguments so that called function can perform
+ its defined task and return the result.
+
+** Function Parameters/Arguments
+There are two types of arguments/parameters
+ + Actual parameters
+ + Formal parameters
+*** Actual Parameters
+Are parameters that appear in function calls
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+function_name(actual parameters)
+#+END_EXAMPLE
+*** Formal Parameters
+Are parameters that appear in function declarations.
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+return_type function_name(formal parameters)
+#+END_EXAMPLE
+ *Example of actual parameter and formal parameter* :
+#+BEGIN_EXAMPLE
+/* function declaration */
+int main()
+{ 
+  /* local variable definition */
+  int a=10;
+  int b=20;
+  int s;
+
+  /* calling a function to get sum of the numbers */
+  s=sum(a,b);
+  printf("Sum of the number is : %\n, s);
+  return 0;
+}
+  /* function returning the sum of the two numbers */
+int sum(int num1, int num2)
+{
+  /* local variable declaration */
+  int result;
+  result=num1+num2;
+  return result;
+}
+#+END_EXAMPLE
+ *Output* :
+ *In calling function -sum(a,b)* , *a* and *b* are actual parameters.
+
+ And parameters in function definition - *int sum(int num1, int num2)* , *num1*
+ and *num2* are formal parameters.
+
+ *Note* :
+ - Formal parameters are always variable.
+ - Actual parameters need not have to be variables. You can use variables,
+   numbers, expressions, or even function calls as actual parameters.
+** Parameter passing mechanism
+The process of transmtting the values from one function to other is known as parameter passing. There are two methods of 
+parameter passing 
+ + Call by value
+ + Call by reference
+*** Call by value
+when the values of the arguments are passed from a calling function to a called function the values are copied into the called 
+function.If any changes are made to the values in the called function, there will not be any change in the orginal values within the 
+calling function.
+
+ *Example* :
+#+BEGIN_EXAMPLE
+#include<stdio.h> 
+#include<math.h> 
+main() 
+{ 
+int a,b,x; 
+int hi(int x,int y); 
+a=10;b=20; 
+printf("a=%d\tb=%d\n",a,b); 
+x=hi(a,b); 
+printf("a=%d\tb=%d\n",a,b); 
+printf("x=%d\n",x); 
+} 
+int hi(int x,int y) 
+{ 
+int sum; 
+sum=x+y; 
+x=pow(x,2); 
+y=sqrt(x); 
+printf("x=%d\ty=%d\n",x,y); 
+return sum; 
+}
+#+END_EXAMPLE
+ *Output* :
+#+BEGIN_EXAMPLE
+a=10 b=20 
+x=100 y=10 
+a=10 b=20 
+x=30 
+#+END_EXAMPLE
+ *Note:* There is no change in the values of a and b before and after the
+  function execution.
+*** Call­by­Reference
+In this method, the actual values are not passed, instead of their values
+addresses are passed to a calling function. Here, no values are copied as the
+memory locations themselves are referenced. If any modification is made to the
+values in the called function, then the orginal values will get changed within
+the calling function. Passing of addresses requires the knowledge of pointers.
+
+ *Note* : When the pointers are passed as arguments, the following two points
+must be considered.
+ - In the calling function, the function is invoked with the function name and
+   addresses of actual parameters enclosed within the parentheses.
+
+ i.e.,  function_name(&var1, &var2, ......, &varn); 
+
+ where, var1, var2, . . . . , varn are actual parameters(arguments)
+
+ - In the parameter list of the called function each and every formal parameter (pointers) must be preceded by an indirection 
+operator (*).
+ 
+ i.e.  data_type function_name(*var1, *var2, . . . *varn) ;
+
+ *Example* :
+#+BEGIN_EXAMPLE
+#include<stdio.h> 
+main() 
+{ 
+int a,b; 
+int hi(int *x,int *y);  //function prototype 
+a=10;b=20; 
+printf("­­­­­­­­Before calling function­­­­­­­­­­­\n\ta=%d\tb=%d\n",a,b);  //Before calling function 
+hi(&a,&b);  //function call 
+printf("­­­­­­­­After calling function­­­­­­­­­­­\n\ta=%d\tb=%d\n",a,b);   //after calling function 
+} 
+int hi(int *x,int *y) 
+{ 
+int temp; 
+temp=*x; 
+*x=*y; 
+*y=temp; 
+}
+#+END_EXAMPLE
+ *Output* :
+#+BEGIN_EXAMPLE
+­­­­­­­­Before calling function­­­­­­­­­­­ 
+   a=10 b=20 
+­­­­­­­­After calling function­­­­­­­­­­­ 
+   a=20 b=10 
+#+END_EXAMPLE
