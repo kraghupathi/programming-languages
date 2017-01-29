@@ -1,6 +1,6 @@
 * Introduction
 C language is a general purpose and structured pragramming langauge developed
-by *"Dennis Ritchie" at AT &T's Bell Laboratories in the 1972s in USA*.
+by *Dennis Ritchie at AT &T's Bell Laboratories in the 1972s in USA*.
 
 It is also called as Procedure oriented programming language. C is not
 specially designed for specific applications areas like COBOL (Common Business
