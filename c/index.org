@@ -1,14 +1,8 @@
 
-[[https://github.com/kraghupathi/programming-languages/blob/master/c/functions-c.org][Functions]]
-
-[[https://github.com/kraghupathi/programming-languages/blob/master/c/recursion.org][Recursion]]
-
-[[https://github.com/kraghupathi/programming-languages/blob/master/c/type-qualifiers.org][Type Qualifiers]]
-
-[[https://github.com/kraghupathi/programming-languages/blob/master/c/sorting-techniques.org][Sorting Techniques]]
-
-[[https://github.com/kraghupathi/programming-languages/blob/master/c/storage-classes.org][Storage Classes]]
-
-[[https://github.com/kraghupathi/programming-languages/blob/master/c/scope-rules.org][Scope Rules]]
-
-[[https://github.com/kraghupathi/programming-languages/blob/master/c/scope-rules.org][Preprocesser]]
+* [[https://github.com/kraghupathi/programming-languages/blob/master/c/functions-c.org][Functions]]
+* [[https://github.com/kraghupathi/programming-languages/blob/master/c/recursion.org][Recursion]]
+* [[https://github.com/kraghupathi/programming-languages/blob/master/c/type-qualifiers.org][Type Qualifiers]]
+* [[https://github.com/kraghupathi/programming-languages/blob/master/c/sorting-techniques.org][Sorting Techniques]]
+* [[https://github.com/kraghupathi/programming-languages/blob/master/c/storage-classes.org][Storage Classes]]
+* [[https://github.com/kraghupathi/programming-languages/blob/master/c/scope-rules.org][Scope Rules]]
+* [[https://github.com/kraghupathi/programming-languages/blob/master/c/scope-rules.org][Preprocesser]]
