@@ -1,0 +1,774 @@
+* Sorting
+Sorting is a technique to rearrange the elements of a list in descending or
+ascending order, which can be numerical, lexicographical, or any user defined
+order.
+
+Sorting is a process through which the data is arranged the ascending or
+descending order. Sorting is the part of the data structure.
+
+** Bubble Sort
+ - Bubble sort is a simple sorting algorithm. This sorting algorithm is
+comparison-based algorithm in which each pair of adjacent elements is compared
+and the elements are swapped if they are not in order. This algorithm is not
+suitable for large data sets as its average and worst case complexity are of
+O(n 2 ) where n is the number of items.
+
+ - Bubble Sort is the simplest sorting algorithm that works by repeatedly
+   swapping the adjacent elements if they are in wrong order.
+
+ *Example* :
+#+BEGIN_EXAMPLE
+First Pass:
+( 5 1 4 2 8 ) ¡V> ( 1 5 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1.
+( 1 5 4 2 8 ) ¡V>  ( 1 4 5 2 8 ), Swap since 5 > 4
+( 1 4 5 2 8 ) ¡V>  ( 1 4 2 5 8 ), Swap since 5 > 2
+( 1 4 2 5 8 ) ¡V> ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them.
+#+END_EXAMPLE
+#+BEGIN_EXAMPLE
+Second Pass:
+( 1 4 2 5 8 ) ¡V> ( 1 4 2 5 8 )
+( 1 4 2 5 8 ) ¡V> ( 1 2 4 5 8 ), Swap since 4 > 2
+( 1 2 4 5 8 ) ¡V> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) ¡V>  ( 1 2 4 5 8 )
+#+END_EXAMPLE
+Now, the array is already sorted, but our algorithm does not know if it is
+completed. The algorithm needs one *whole* pass without *any* swap to know it
+is sorted.
+#+BEGIN_EXAMPLE
+( 1 2 4 5 8 ) ¡V> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) ¡V> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) ¡V> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) ¡V> ( 1 2 4 5 8 )
+#+END_EXAMPLE
+Following the c programming for implementing bubble sort
+#+BEGIN_EXAMPLE
+// C program for implementation of Bubble sort
+#include <stdio.h>
+ 
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+ 
+// A function to implement bubble sort
+void bubbleSort(int arr[], int n)
+{
+   int i, j;
+   for (i = 0; i < n-1; i++)      
+ 
+       // Last i elements are already in place   
+       for (j = 0; j < n-i-1; j++) 
+           if (arr[j] > arr[j+1])
+              swap(&arr[j], &arr[j+1]);
+}
+ 
+/* Function to print an array */
+void printArray(int arr[], int size)
+{
+    for (int i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+ 
+// Driver program to test above functions
+int main()
+{
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    bubbleSort(arr, n);
+    printf("Sorted array: \n");
+    printArray(arr, n);
+    return 0;
+}
+#+END_EXAMPLE
+ *Output* :
+
+Sorted array:
+
+11 12 22 25 34 64 90
+
+** Selection Sort
+The selection sort algorithm sorts an array by repeatedly finding the minimum
+element (considering ascending order) from unsorted part and putting it at the
+beginning. The algorithm maintains two subarrays in a given array.
+ - The subarray which is already sorted.
+ - Remaining subarray which is unsorted.
+
+In every iteration of selection sort, the minimum element (considering
+ascending order) from the unsorted subarray is picked and moved to the sorted
+subarray.
+
+Following example explains the above steps:
+#+BEGIN_EXAMPLE
+arr[] = 64 25 12 22 11
+
+// Find the minimum element in arr[0...4]
+// and place it at beginning
+11 25 12 22 64
+
+// Find the minimum element in arr[1...4]
+// and place it at beginning of arr[1...4]
+11 12 25 22 64
+
+// Find the minimum element in arr[2...4]
+// and place it at beginning of arr[2...4]
+11 12 22 25 64
+
+// Find the minimum element in arr[3...4]
+// and place it at beginning of arr[3...4]
+11 12 22 25 64 
+#+END_EXAMPLE
+C program for implementation of selection sort
+#+BEGIN_EXAMPLE
+// C program for implementation of selection sort
+#include <stdio.h>
+ 
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+ 
+void selectionSort(int arr[], int n)
+{
+    int i, j, min_idx;
+ 
+    // One by one move boundary of unsorted subarray
+    for (i = 0; i < n-1; i++)
+    {
+        // Find the minimum element in unsorted array
+        min_idx = i;
+        for (j = i+1; j < n; j++)
+          if (arr[j] < arr[min_idx])
+            min_idx = j;
+ 
+        // Swap the found minimum element with the first element
+        swap(&arr[min_idx], &arr[i]);
+    }
+}
+ 
+/* Function to print an array */
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+ 
+// Driver program to test above functions
+int main()
+{
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    selectionSort(arr, n);
+    printf("Sorted array: \n");
+    printArray(arr, n);
+    return 0;
+}
+#+END_EXAMPLE
+ *Output* :
+
+Sorted array:
+
+11 12 22 25 64
+** Insertion Sort
+Insertion sort is a simple sorting algorithm that works the way we sort playing cards in our hands.
+
+ *Algorithm* :
+#+BEGIN_EXAMPLE
+// Sort an arr[] of size n
+insertionSort(arr, n)
+Loop from i = 1 to n-1.
+¡K¡Ka) Pick element arr[i] and insert it into sorted sequence arr[0¡Ki-1]
+#+END_EXAMPLE
+*Example* :
+#+BEGIN_EXAMPLE
+12, 11, 13, 5, 6
+Let us loop for i = 1 (second element of the array) to 5 (Size of input array)
+i = 1. Since 11 is smaller than 12, move 12 and insert 11 before 12
+11, 12, 13, 5, 6
+i = 2. 13 will remain at its position as all elements in A[0..I-1] are smaller than 13
+11, 12, 13, 5, 6
+i = 3. 5 will move to the beginning and all other elements from 11 to 13 will move one position ahead of their current position.
+5, 11, 12, 13, 6
+i = 4. 6 will move to position after 5, and elements from 11 to 13 will move one position ahead of their current position.
+5, 6, 11, 12, 13
+#+END_EXAMPLE
+C program for insertion sort
+#+BEGIN_EXAMPLE
+// C program for insertion sort
+#include <stdio.h>
+#include <math.h>
+ 
+/* Function to sort an array using insertion sort*/
+void insertionSort(int arr[], int n)
+{
+   int i, key, j;
+   for (i = 1; i < n; i++)
+   {
+       key = arr[i];
+       j = i-1;
+ 
+       /* Move elements of arr[0..i-1], that are
+          greater than key, to one position ahead
+          of their current position */
+       while (j >= 0 && arr[j] > key)
+       {
+           arr[j+1] = arr[j];
+           j = j-1;
+       }
+       arr[j+1] = key;
+   }
+}
+ 
+// A utility function ot print an array of size n
+void printArray(int arr[], int n)
+{
+   int i;
+   for (i=0; i < n; i++)
+       printf("%d ", arr[i]);
+   printf("\n");
+}
+ 
+ 
+ 
+/* Driver program to test insertion sort */
+int main()
+{
+    int arr[] = {12, 11, 13, 5, 6};
+    int n = sizeof(arr)/sizeof(arr[0]);
+ 
+    insertionSort(arr, n);
+    printArray(arr, n);
+ 
+    return 0;
+}
+
+#+END_EXAMPLE
+ *Output* :
+5 6 11 12 13
+** Merge Sort
+Like *QuickSort* , *Merge Sort* is a *Divide and Conquer* algorithm. It divides
+input array in two halves, calls itself for the two halves and then merges the
+two sorted halves. The *merge() function* is used for merging two halves. The
+merge(arr, l, m, r) is key process that assumes that arr[l..m] and arr[m+1..r]
+are sorted and merges the two sorted sub-arrays into one. See following C
+implementation for details.
+#+BEGIN_EXAMPLE
+MergeSort(arr[], l,  r)
+If r > l
+     1. Find the middle point to divide the array into two halves:  
+             middle m = (l+r)/2
+     2. Call mergeSort for first half:   
+             Call mergeSort(arr, l, m)
+     3. Call mergeSort for second half:
+             Call mergeSort(arr, m+1, r)
+     4. Merge the two halves sorted in step 2 and 3:
+             Call merge(arr, l, m, r)
+#+END_EXAMPLE
+The following diagram from [[https://en.wikipedia.org/wiki/File:Merge_sort_algorithm_diagram.svg][wikipedia]] shows the complete merge sort process for
+an example array {38, 27, 43, 3, 9, 82, 10}. If we take a closer look at the
+diagram, we can see that the array is recursively divided in two halves till
+the size becomes 1. Once the size becomes 1, the merge processes comes into
+action and starts merging arrays back till the complete array is merged.
+
+[[./Merge-Sort.png]]
+
+C program for merge sort
+#+BEGIN_EXAMPLE
+/* C program for Merge Sort */
+#include<stdlib.h>
+#include<stdio.h>
+ 
+// Merges two subarrays of arr[].
+// First subarray is arr[l..m]
+// Second subarray is arr[m+1..r]
+void merge(int arr[], int l, int m, int r)
+{
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
+ 
+    /* create temp arrays */
+    int L[n1], R[n2];
+ 
+    /* Copy data to temp arrays L[] and R[] */
+    for (i = 0; i < n1; i++)
+        L[i] = arr[l + i];
+    for (j = 0; j < n2; j++)
+        R[j] = arr[m + 1+ j];
+ 
+    /* Merge the temp arrays back into arr[l..r]*/
+    i = 0; // Initial index of first subarray
+    j = 0; // Initial index of second subarray
+    k = l; // Initial index of merged subarray
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
+            arr[k] = L[i];
+            i++;
+        }
+        else
+        {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+ 
+    /* Copy the remaining elements of L[], if there
+       are any */
+    while (i < n1)
+    {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+ 
+    /* Copy the remaining elements of R[], if there
+       are any */
+    while (j < n2)
+    {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+ 
+/* l is for left index and r is right index of the
+   sub-array of arr to be sorted */
+void mergeSort(int arr[], int l, int r)
+{
+    if (l < r)
+    {
+        // Same as (l+r)/2, but avoids overflow for
+        // large l and h
+        int m = l+(r-l)/2;
+ 
+        // Sort first and second halves
+        mergeSort(arr, l, m);
+        mergeSort(arr, m+1, r);
+ 
+        merge(arr, l, m, r);
+    }
+}
+ 
+/* UTILITY FUNCTIONS */
+/* Function to print an array */
+void printArray(int A[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", A[i]);
+    printf("\n");
+}
+ 
+/* Driver program to test above functions */
+int main()
+{
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    int arr_size = sizeof(arr)/sizeof(arr[0]);
+ 
+    printf("Given array is \n");
+    printArray(arr, arr_size);
+ 
+    mergeSort(arr, 0, arr_size - 1);
+ 
+    printf("\nSorted array is \n");
+    printArray(arr, arr_size);
+    return 0;
+}
+#+END_EXAMPLE
+ *Output* :
+Given array is
+12 11 13 5 6 7
+
+Sorted array is
+5 6 7 11 12 13
+
+** Quick Sort
+Like *Merge Sort* , QuickSort is a Divide and Conquer algorithm. It picks an
+element as pivot and partitions the given array around the picked pivot. There
+are many different versions of quickSort that pick pivot in different ways.
+ - Always pick first element as pivot.
+ - Always pick last element as pivot (implemented below)
+ - Pick a random element as pivot.
+ - Pick median as pivot.
+
+The key process in quickSort is partition(). Target of partitions is, given an
+array and an element x of array as pivot, put x at its correct position in
+sorted array and put all smaller elements (smaller than x) before x, and put
+all greater elements (greater than x) after x. All this should be done in
+linear time.
+
+** Pseudo Code for recursive QuickSort function :
+#+BEGIN_EXAMPLE
+/* low  --> Starting index,  high  --> Ending index */
+quickSort(arr[], low, high)
+{
+    if (low < high)
+    {
+        /* pi is partitioning index, arr[p] is now
+           at right place */
+        pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);  // Before pi
+        quickSort(arr, pi + 1, high); // After pi
+    }
+}
+#+END_EXAMPLE
+[[./QuickSort2.png]]
+
+** Partition Algorthim
+There can be many ways to do partition, following pseudo code adopts the method
+given in CLRS book. The logic is simple, we start from the leftmost element and
+keep track of index of smaller (or equal to) elements as i. While traversing,
+if we find a smaller element, we swap current element with arr[i]. Otherwise we
+ignore current element.
+#+BEGIN_EXAMPLE
+/* low  --> Starting index,  high  --> Ending index */
+quickSort(arr[], low, high)
+{
+    if (low < high)
+    {
+        /* pi is partitioning index, arr[p] is now
+           at right place */
+        pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);  // Before pi
+        quickSort(arr, pi + 1, high); // After pi
+    }
+}
+#+END_EXAMPLE
+** Pseudo code for partition()
+#+BEGIN_EXAMPLE
+/* This function takes last element as pivot, places
+   the pivot element at its correct position in sorted
+    array, and places all smaller (smaller than pivot)
+   to left of pivot and all greater elements to right
+   of pivot */
+partition (arr[], low, high)
+{
+    // pivot (Element to be placed at right position)
+    pivot = arr[high];  
+ 
+    i = (low - 1)  // Index of smaller element
+
+    for (j = low; j <= high- 1; j++)
+    {
+        // If current element is smaller than or
+        // equal to pivot
+        if (arr[j] <= pivot)
+        {
+            i++;    // increment index of smaller element
+            swap arr[i] and arr[j]
+        }
+    }
+    swap arr[i + 1] and arr[high])
+    return (i + 1)
+}
+#+END_EXAMPLE
+** Illustration of partition()
+#+BEGIN_EXAMPLE
+arr[] = {10, 80, 30, 90, 40, 50, 70}
+Indexes:  0   1   2   3   4   5   6 
+
+low = 0, high =  6, pivot = arr[h] = 70
+Initialize index of smaller element, i = -1
+
+Traverse elements from j = low to high-1
+j = 0 : Since arr[j] <= pivot, do i++ and swap(arr[i], arr[j])
+i = 0 
+arr[] = {10, 80, 30, 90, 40, 50, 70} // No change as i and j 
+                                     // are same
+
+j = 1 : Since arr[j] > pivot, do nothing
+// No change in i and arr[]
+
+j = 2 : Since arr[j] <= pivot, do i++ and swap(arr[i], arr[j])
+i = 1
+arr[] = {10, 30, 80, 90, 40, 50, 70} // We swap 80 and 30 
+
+j = 3 : Since arr[j] > pivot, do nothing
+// No change in i and arr[]
+
+j = 4 : Since arr[j] <= pivot, do i++ and swap(arr[i], arr[j])
+i = 2
+arr[] = {10, 30, 40, 90, 80, 50, 70} // 80 and 40 Swapped
+j = 5 : Since arr[j] <= pivot, do i++ and swap arr[i] with arr[j] 
+i = 3 
+arr[] = {10, 30, 40, 50, 80, 90, 70} // 90 and 50 Swapped 
+
+We come out of loop because j is now equal to high-1.
+Finally we place pivot at correct position by swapping
+arr[i+1] and arr[high] (or pivot) 
+arr[] = {10, 30, 40, 50, 70, 90, 80} // 80 and 70 Swapped 
+
+Now 70 is at its correct place. All elements smaller than
+70 are before it and all elements greater than 70 are after
+it.
+#+END_EXAMPLE
+ *Implementation*
+#+BEGIN_EXAMPLE
+/* C implementation QuickSort */
+#include<stdio.h>
+ 
+// A utility function to swap two elements
+void swap(int* a, int* b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+ 
+/* This function takes last element as pivot, places
+   the pivot element at its correct position in sorted
+    array, and places all smaller (smaller than pivot)
+   to left of pivot and all greater elements to right
+   of pivot */
+int partition (int arr[], int low, int high)
+{
+    int pivot = arr[high];    // pivot
+    int i = (low - 1);  // Index of smaller element
+ 
+    for (int j = low; j <= high- 1; j++)
+    {
+        // If current element is smaller than or
+        // equal to pivot
+        if (arr[j] <= pivot)
+        {
+            i++;    // increment index of smaller element
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
+}
+ 
+/* The main function that implements QuickSort
+ arr[] --> Array to be sorted,
+  low  --> Starting index,
+  high  --> Ending index */
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
+        /* pi is partitioning index, arr[p] is now
+           at right place */
+        int pi = partition(arr, low, high);
+ 
+        // Separately sort elements before
+        // partition and after partition
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+ 
+/* Function to print an array */
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+ 
+// Driver program to test above functions
+int main()
+{
+    int arr[] = {10, 7, 8, 9, 1, 5};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    quickSort(arr, 0, n-1);
+    printf("Sorted array: \n");
+    printArray(arr, n);
+    return 0;
+}
+#+END_EXAMPLE
+ *Output* :
+Sorted array:
+1 5 7 8 9 10
+
+** Bubble sort algorithm in c
+#+BEGIN_EXAMPLE
+/* Bubble sort code */
+ 
+#include <stdio.h>
+ 
+int main()
+{
+  int array[100], n, c, d, swap;
+ 
+  printf("Enter number of elements\n");
+  scanf("%d", &n);
+ 
+  printf("Enter %d integers\n", n);
+ 
+  for (c = 0; c < n; c++)
+    scanf("%d", &array[c]);
+ 
+  for (c = 0 ; c < ( n - 1 ); c++)
+  {
+    for (d = 0 ; d < n - c - 1; d++)
+    {
+      if (array[d] > array[d+1]) /* For decreasing order use < */
+      {
+        swap       = array[d];
+        array[d]   = array[d+1];
+        array[d+1] = swap;
+      }
+    }
+  }
+ 
+  printf("Sorted list in ascending order:\n");
+ 
+  for ( c = 0 ; c < n ; c++ )
+     printf("%d\n", array[c]);
+ 
+  return 0;
+}
+#+END_EXAMPLE
+ *Output of program* :
+
+ [[./bubble-sort-c.png]]
+
+** Bubble sort in c language using function
+#+BEGIN_EXAMPLE
+#include <stdio.h>
+ 
+void bubble_sort(long [], long);
+ 
+int main()
+{
+  long array[100], n, c, d, swap;
+ 
+  printf("Enter number of elements\n");
+  scanf("%ld", &n);
+ 
+  printf("Enter %ld integers\n", n);
+ 
+  for (c = 0; c < n; c++)
+    scanf("%ld", &array[c]);
+ 
+  bubble_sort(array, n);
+ 
+  printf("Sorted list in ascending order:\n");
+ 
+  for ( c = 0 ; c < n ; c++ )
+     printf("%ld\n", array[c]);
+ 
+  return 0;
+}
+ 
+void bubble_sort(long list[], long n)
+{
+  long c, d, t;
+ 
+  for (c = 0 ; c < ( n - 1 ); c++)
+  {
+    for (d = 0 ; d < n - c - 1; d++)
+    {
+      if (list[d] > list[d+1])
+      {
+        /* Swapping */
+ 
+        t         = list[d];
+        list[d]   = list[d+1];
+        list[d+1] = t;
+      }
+    }
+  }
+}
+#+END_EXAMPLE
+** Selection sort algorithm implementation in c
+#+BEGIN_EXAMPLE
+#include <stdio.h>
+ 
+int main()
+{
+   int array[100], n, c, d, position, swap;
+ 
+   printf("Enter number of elements\n");
+   scanf("%d", &n);
+ 
+   printf("Enter %d integers\n", n);
+ 
+   for ( c = 0 ; c < n ; c++ )
+      scanf("%d", &array[c]);
+ 
+   for ( c = 0 ; c < ( n - 1 ) ; c++ )
+   {
+      position = c;
+ 
+      for ( d = c + 1 ; d < n ; d++ )
+      {
+         if ( array[position] > array[d] )
+            position = d;
+      }
+      if ( position != c )
+      {
+         swap = array[c];
+         array[c] = array[position];
+         array[position] = swap;
+      }
+   }
+ 
+   printf("Sorted list in ascending order:\n");
+ 
+   for ( c = 0 ; c < n ; c++ )
+      printf("%d\n", array[c]);
+ 
+   return 0;
+}
+#+END_EXAMPLE
+ *Output of program* :
+
+ [[./selection-sort-c.png]]
+
+** Insertion sort algorithm implementation in c
+#+BEGIN_EXAMPLE
+/* insertion sort ascending order */
+ 
+#include <stdio.h>
+ 
+int main()
+{
+  int n, array[1000], c, d, t;
+ 
+  printf("Enter number of elements\n");
+  scanf("%d", &n);
+ 
+  printf("Enter %d integers\n", n);
+ 
+  for (c = 0; c < n; c++) {
+    scanf("%d", &array[c]);
+  }
+ 
+  for (c = 1 ; c <= n - 1; c++) {
+    d = c;
+ 
+    while ( d > 0 && array[d] < array[d-1]) {
+      t          = array[d];
+      array[d]   = array[d-1];
+      array[d-1] = t;
+ 
+      d--;
+    }
+  }
+ 
+  printf("Sorted list in ascending order:\n");
+ 
+  for (c = 0; c <= n - 1; c++) {
+    printf("%d\n", array[c]);
+  }
+ 
+  return 0;
+}
+#+END_EXAMPLE
+ *Output of program* :
+
+[[./insertion-sort-c.png]]
