@@ -7,11 +7,8 @@ Sorting is a process through which the data is arranged the ascending or
 descending order. Sorting is the part of the data structure.
 
 ** Bubble Sort
- - Bubble sort is a simple sorting algorithm. This sorting algorithm is
-comparison-based algorithm in which each pair of adjacent elements is compared
-and the elements are swapped if they are not in order. This algorithm is not
-suitable for large data sets as its average and worst case complexity are of
-O(n 2 ) where n is the number of items.
+ - Bubble sort is a simple sorting algorithm. This sorting algorithm is comparison-based algorithm in which each pair of adjacent elements is compared and the elements are swapped if they are not in order. This algorithm is not
+suitable for large data sets as its average and worst case complexity are of O(n 2 ) where n is the number of items.
 
  - Bubble Sort is the simplest sorting algorithm that works by repeatedly
    swapping the adjacent elements if they are in wrong order.
@@ -19,26 +16,26 @@ O(n 2 ) where n is the number of items.
  *Example* :
 #+BEGIN_EXAMPLE
 First Pass:
-( 5 1 4 2 8 ) ¡V> ( 1 5 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1.
-( 1 5 4 2 8 ) ¡V>  ( 1 4 5 2 8 ), Swap since 5 > 4
-( 1 4 5 2 8 ) ¡V>  ( 1 4 2 5 8 ), Swap since 5 > 2
-( 1 4 2 5 8 ) ¡V> ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them.
+( 5 1 4 2 8 ) Â¡V> ( 1 5 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1.
+( 1 5 4 2 8 ) Â¡V>  ( 1 4 5 2 8 ), Swap since 5 > 4
+( 1 4 5 2 8 ) Â¡V>  ( 1 4 2 5 8 ), Swap since 5 > 2
+( 1 4 2 5 8 ) Â¡V> ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them.
 #+END_EXAMPLE
 #+BEGIN_EXAMPLE
 Second Pass:
-( 1 4 2 5 8 ) ¡V> ( 1 4 2 5 8 )
-( 1 4 2 5 8 ) ¡V> ( 1 2 4 5 8 ), Swap since 4 > 2
-( 1 2 4 5 8 ) ¡V> ( 1 2 4 5 8 )
-( 1 2 4 5 8 ) ¡V>  ( 1 2 4 5 8 )
+( 1 4 2 5 8 ) Â¡V> ( 1 4 2 5 8 )
+( 1 4 2 5 8 ) Â¡V> ( 1 2 4 5 8 ), Swap since 4 > 2
+( 1 2 4 5 8 ) Â¡V> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) Â¡V>  ( 1 2 4 5 8 )
 #+END_EXAMPLE
 Now, the array is already sorted, but our algorithm does not know if it is
 completed. The algorithm needs one *whole* pass without *any* swap to know it
 is sorted.
 #+BEGIN_EXAMPLE
-( 1 2 4 5 8 ) ¡V> ( 1 2 4 5 8 )
-( 1 2 4 5 8 ) ¡V> ( 1 2 4 5 8 )
-( 1 2 4 5 8 ) ¡V> ( 1 2 4 5 8 )
-( 1 2 4 5 8 ) ¡V> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) Â¡V> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) Â¡V> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) Â¡V> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) Â¡V> ( 1 2 4 5 8 )
 #+END_EXAMPLE
 Following the c programming for implementing bubble sort
 #+BEGIN_EXAMPLE
@@ -183,7 +180,7 @@ Insertion sort is a simple sorting algorithm that works the way we sort playing 
 // Sort an arr[] of size n
 insertionSort(arr, n)
 Loop from i = 1 to n-1.
-¡K¡Ka) Pick element arr[i] and insert it into sorted sequence arr[0¡Ki-1]
+Â¡KÂ¡Ka) Pick element arr[i] and insert it into sorted sequence arr[0Â¡Ki-1]
 #+END_EXAMPLE
 *Example* :
 #+BEGIN_EXAMPLE
