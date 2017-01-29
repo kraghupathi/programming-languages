@@ -1,3 +1,19 @@
+* Introduction
+C language is a general purpose and structured pragramming langauge developed
+by *¡°Dennis Ritchie¡± at AT &T's Bell Laboratories in the 1972s in USA*.
+
+It is also called as ¡°Procedure oriented programming language.¡±  C is not
+specially designed for specific applications areas like COBOL (Common Business
+Oriented Language) or FORTRAN (Formula Translation). It is well suited for
+business and scietific applications. It has some various features like control
+structures, looping statements, arrays, macros required for these applications.
+
+The C language has following numorous features as: 
+ - Portability
+ - Flexiblility
+ - effectiveness and efficiency
+ - Reliability
+ - interactivity
 
 ** [[https://github.com/kraghupathi/programming-languages/blob/master/c/functions-c.org][Functions]]
 ** [[https://github.com/kraghupathi/programming-languages/blob/master/c/recursion.org][Recursion]]
