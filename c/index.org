@@ -21,4 +21,4 @@ The C language has following numorous features as:
 ** [[https://github.com/kraghupathi/programming-languages/blob/master/c/sorting-techniques.org][Sorting Techniques]]
 ** [[https://github.com/kraghupathi/programming-languages/blob/master/c/storage-classes.org][Storage Classes]]
 ** [[https://github.com/kraghupathi/programming-languages/blob/master/c/scope-rules.org][Scope Rules]]
-** [[https://github.com/kraghupathi/programming-languages/blob/master/c/scope-rules.org][Preprocesser]]
+** [[https://github.com/kraghupathi/programming-languages/blob/master/c/preprocessor.org][Preprocesser]]
