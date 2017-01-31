@@ -175,7 +175,7 @@ condition.The statements after break statement are skipped.
 break;
 Figure:
 #+END_EXAMPLE
- [[./break-statement.png]
+ [[./break-statement.png]]
 
  *Program* :
 #+BEGIN_EXAMPLE
@@ -207,7 +207,7 @@ statements and continues next iteration.
 continue; 
 Figure:
 #+END_EXAMPLE
-[[./continue-statement.png]
+[[./continue-statement.png]]
 
  *Program* :
 #+BEGIN_EXAMPLE
@@ -252,7 +252,7 @@ cannot work here properly. In this situations, goto statement is used.
 goto [expr]; 
 Figure:
 #+END_EXAMPLE
-[[./goto-statement.png]
+[[./goto-statement.png]]
 
  *Program*:
 #+BEGIN_EXAMPLE
@@ -277,7 +277,7 @@ printf("\n Exited !");
 #+END_EXAMPLE
  *Output* : 
 
- * * 
+  * * 
  
  Exited
 
