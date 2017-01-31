@@ -277,7 +277,7 @@ printf("\n Exited !");
 #+END_EXAMPLE
  *Output* : 
 
-  * * 
+  ** 
  
  Exited
 
