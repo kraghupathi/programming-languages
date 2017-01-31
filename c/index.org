@@ -15,7 +15,7 @@ The C language has following numorous features as:
  - Reliability
  - interactivity
 
-** [[https://github.com/kraghupathi/programming-languages/blob/master/c/if-statement.org][If-Statement]]
+** [[https://github.com/kraghupathi/programming-languages/blob/master/c/if-statement.org][If and Switch Statements]]
 ** [[https://github.com/kraghupathi/programming-languages/blob/master/c/loop-statement.org][Looping, break, continue and go to statements]]
 ** [[https://github.com/kraghupathi/programming-languages/blob/master/c/functions-c.org][Functions]]
 ** [[https://github.com/kraghupathi/programming-languages/blob/master/c/recursion.org][Recursion]]
