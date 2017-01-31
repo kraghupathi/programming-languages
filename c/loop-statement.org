@@ -1,0 +1,283 @@
+* Looping Statements/terative Statements
+ - A loop' is a part of code of a program which is executed repeatedly. 
+ - A loop is used using condition. The repetition is done until condition becomes true.
+ - A loop declaration and execution can be done in following ways. 
+  + Check condition to start a loop 
+  + Initialize loop with declaring a variable. 
+  + Executing statements inside loop. 
+  + Increment or decrement of value of a variable. 
+** Types of looping statements
+Basically, the types of looping statements depends on the condition checking mode. Condition checking can be made in two ways 
+as : Before loop and after loop. So, there are 2(two) types of looping statements. 
+ - Entry controlled loop 
+ - Exit controlled loop
+*** Entry controlled loop : 
+In such type of loop, the test condition is checked first before the loop is executed. 
+Some common examples of this looping statements are : 
+ - while loop 
+ - for loop 
+*** Exit controlled loop : 
+In such type of loop, the loop is executed first. Then condition is checked after block of statements are executed. The loop executed 
+atleat one time compulsarily. 
+Some common example of this looping statement is : 
+ - do­while loop 
+** While loop
+This is an entry controlled looping statement. It is used to repeat a block of statements until condition becomes true. 
+
+ *Syntax*:
+#+BEGIN_EXAMPLE
+while(condition) 
+{ 
+statements; 
+increment/decrement; 
+} 
+#+END_EXAMPLE
+In above syntax, the condition is checked first. If it is true, then the program control flow goes inside the loop and executes the 
+block of statements associated with it. At the end of loop increment or decrement is done to change in variable value. This process 
+continues until test condition satisfies.
+
+ *Program*:
+#+BEGIN_EXAMPLE
+#include <stdio.h> 
+#include <conio.h> void main() 
+{ 
+int a; 
+a=1; 
+while(a<=5) 
+{ 
+printf(“\n Hi”);
+a+=1; // i.e. a = a + 1 
+} 
+} 
+#+END_EXAMPLE
+ *Output* : 
+
+Hi
+
+Hi 
+
+Hi 
+
+Hi 
+
+Hi 
+
+** For loop
+This is an entry controlled looping statement. 
+In this loop structure, more than one variable can be initilized. One of the most important feature of this loop is that the three 
+actions can be taken at a time like variable initilisation, condition checking and increment/decrement. The for loop can be more 
+concise and flexible than that of while and do­while loops. 
+ 
+ *Syntax* :
+#+BEGIN_EXAMPLE
+or(initialisation; test­condition; incre/decre) 
+{ 
+statements; 
+} 
+#+END_EXAMPLE
+In above syntax, the given three expressions are seperated by ';' (Semicolon) 
+** Features
+ - More concise
+ - Easy to use 
+ - Highly flexible 
+ - More than one variable can be initilized. 
+ - More than one increments can be applied. 
+ - More than two conditions can be used. 
+
+ *Program*:
+#+BEGIN_EXAMPLE
+#include <stdio.h> 
+#include <conio.h> 
+void main() 
+{ 
+int a; 
+for(i=0; i<5; i++) 
+{ 
+printf("\nHi"); 
+} 
+} 
+#+END_EXAMPLE
+ *Output* :
+
+Hi
+
+Hi 
+
+Hi 
+
+Hi 
+
+Hi
+
+** Do­While loop
+This is an exit controlled looping statement. 
+Sometimes, there is need to execute a block of statements first then to check condition. At that time such type of a loop is used. In 
+this, block of statements are executed first and then condition is checked. 
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+do 
+{ statements; 
+(increment/decrement); 
+}while(condition); 
+#+END_EXAMPLE
+In above syntax, the first the block of statements are executed. At the end of loop, while statement is executed. If the resultant 
+condition is true then program control goes to evaluate the body of a loop once again. This process continues till condition becomes 
+true. When it becomes false, then the loop terminates. 
+
+ *Note*: The while statement should be terminated with ; (semicolon). 
+
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h> 
+#include <conio.h> 
+void main() 
+{ 
+int a; 
+a=1; 
+do 
+{ 
+printf("\nHi"); // 5 times 
+a+=1; 
+// i.e. a = a + 1 
+}while(a<=5); 
+a=6; 
+do 
+{ 
+printf("\nBye"); // 1 time 
+a+=1; 
+// i.e. a = a + 1 
+}while(a<=5); 
+} 
+#+END_EXAMPLE
+ *Output* :
+
+Hi
+
+Hi
+
+Hi
+
+Hi
+
+Hi
+
+Bye
+
+** Break Statement 
+It is used to exit from a loop or a switch, control passing to the first statement beyond the loop or a switch.
+With loops, break can be used to force an early exit from the loop, or to implement a loop with a test to exit in the middle of the loop 
+body. A break within a loop should always be protected within an if statement which provides the test to control the exit 
+condition.The statements after break statement are skipped.
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+break;
+Figure:
+#+END_EXAMPLE
+ [[./]
+
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h> 
+#include <conio.h> 
+void main() 
+{ 
+int i; 
+for(i=1; ; i++) 
+{ if(i>5) 
+break; 
+printf("%d\t",i); 
+} 
+}
+#+END_EXAMPLE
+ *Output*:
+1 2 3 4 5
+
+** Continue Statement
+Sometimes, it is required to skip a part of a body of loop under specific conditions. So, C supports 'continue' statement to overcome 
+this anomaly. 
+
+The working structure of 'continue' is similar as that of that break statement but difference is that it cannot terminate the loop. It 
+causes the loop to be continued with next iteration after skipping statements in between. Continue statement simply skipps 
+statements and continues next iteration. 
+ 
+ *Syntax* :
+#+BEGIN_EXAMPLE
+continue; 
+Figure:
+#+END_EXAMPLE
+[[./]
+
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h>  
+void main() 
+{ 
+int i; 
+for(i=1; i<=10; i++) 
+{ 
+if(i==6) 
+continue; printf("\n %d",i); 
+} 
+}
+#+END_EXAMPLE
+ *Output* :
+1 
+
+2 
+
+3 
+
+4 
+
+5 
+
+7 
+
+8 
+
+9 
+
+10 
+
+** Goto Statement
+It is a well known as *jumping statement*. It is primarily used to transfer the control of execution to any place in a program. It is 
+useful to provide branching within a loop. 
+When the loops are deeply nested at that if an error occurs then it is difficult to get exited from such loops. Simple break statement 
+cannot work here properly. In this situations, goto statement is used. 
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+goto [expr]; 
+Figure:
+#+END_EXAMPLE
+[[./]
+
+ *Program*:
+#+BEGIN_EXAMPLE
+#include <stdio.h> 
+#include <conio.h> 
+void main() 
+{ 
+int i=1, j; 
+while(i<=3) 
+{ 
+for(j=1; j<=3; j++) 
+{ 
+printf(" * "); 
+if(j==2) 
+goto stop; 
+} 
+i = i + 1; 
+} 
+stop: 
+printf("\n Exited !"); 
+} 
+#+END_EXAMPLE
+ *Output* : 
+
+ * * 
+ 
+ Exited
+
