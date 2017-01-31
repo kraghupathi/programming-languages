@@ -1,0 +1,224 @@
+* Decision Making Statements/Conditional Statements
+C program executes program sequentially. Sometimes, a program requires checking
+of certain conditions in program execution. C provides various key condition
+statements to check condition and execute statements according conditional
+criteria.  These statements are called as *Decision Making Statements* or
+*Conditional Statements*.  Followings are the different conditional statements
+used in C.
+ - If Statement 
+ - If­Else Statement 
+ - Nested If­Else Statement
+ - Switch Case 
+
+** If Statement
+This is a conditional statement used in C to check condition or to control the
+flow of execution of statements. This is also called as 'decision making
+statement or control statement.' The execution of a whole program is done in
+one direction only.
+ 
+ *Syntax*:
+#+BEGIN_EXAMPLE
+if(condition) 
+{ 
+statements; 
+} 
+#+END_EXAMPLE
+In above syntax, the condition is checked first. If it is true, then the program control flow goes inside the braces and executes the 
+block of statements associated with it. If it returns false, then program skips the braces. If there are more than 1 (one) statements 
+in if statement then use { } braces else it is not necessary to use.
+
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h> 
+#include <conio.h> 
+void main() 
+{ 
+int a; 
+a=5; 
+if(a>4) 
+printf("\nValue of A is greater than 4 !"); 
+if(a==4) 
+printf("\n Value of A is 4 !"); 
+} 
+#+END_EXAMPLE
+ *Output* :
+Value of A is greater than 4 !
+
+** If-else Statement
+This is also one of the most useful conditional statement used in C to check
+conditions.
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+if(condition) 
+{ 
+true statements; 
+} 
+else 
+{ 
+false statements; 
+} 
+#+END_EXAMPLE
+In above syntax, the condition is checked first. If it is true, then the
+program control flow goes inside the braces and executes the block of
+statements associated with it. If it returns false, then it executes the else
+part of a program.
+
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h> 
+#include <conio.h> 
+void main() 
+{ 
+int no; 
+printf("\n Enter Number :"); 
+scanf("%d",&no); 
+if(no%2==0) 
+printf("Number is even !\n"); 
+else 
+printf("Number is odd !\n"); 
+}
+#+END_EXAMPLE
+ *Output*: 
+Enter Number : 11 
+
+Number is odd !
+
+** Nested If­Else Statement
+It is a conditional statement which is used when we want to check more than 1
+conditions at a time in a same program. The conditions are executed from top to
+bottom hecking each condition whether it meets the conditional criteria or
+not. If it found the condition is true then it executes the block of associated
+statements of true part else it goes to next condition to execute.
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+if(condition) 
+{ 
+if(condition) 
+{ 
+statements; 
+} 
+else 
+{ 
+statements; 
+} 
+} 
+else 
+{ 
+statements; 
+} 
+#+END_EXAMPLE
+In above syntax, the condition is checked first. If it is true, then the
+program control flow goes inside the braces and again checks the next
+condition. If it is true then it executes the block of statements associated
+with it else executes else part.
+
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h> 
+#include <conio.h> 
+void main() 
+{ 
+int no; 
+printf("\n Enter Number :"); 
+scanf("%d",&no); 
+if(no>0) 
+{ printf("\n\n Number is greater than 0 !"); 
+} 
+else 
+{ 
+if(no==0) 
+{ 
+printf("\n\n It is 0 !"); 
+} 
+else 
+{ 
+printf("Number is less than 0 !"); 
+} 
+}
+}
+#+END_EXAMPLE
+ *Output* : 
+Enter Number : 0 
+
+It is 0 ! 
+
+** Switch case Statement
+This is a multiple or multiway brancing decision making statement.  When we use
+nested if­else statement to check more than 1 conditions then the complexity of
+a program increases in case of a lot of conditions. Thus, the program is
+difficult to read and maintain. So to overcome this problem, C provides 'switch
+case'.  Switch case checks the value of a expression against a case values, if
+condition matches the case values then the control is transferred to that
+point.
+
+ *Syntax* :
+#+BEGIN_EXAMPLE
+switch(expression) 
+{ 
+case expr1: 
+statements; 
+break; 
+case expr2: statements; 
+break; 
+' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' 
+' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' 
+case exprn: 
+statements; 
+break; 
+default: 
+statements; 
+} 
+#+END_EXAMPLE
+In above syntax, switch, case, break are =keywords=. 
+expr1, expr2 are known as =case labels=. 
+Statements inside case expression need not to be closed in braces. 
+Break statement causes an exit from switch statement. 
+Default case is optional case. When neither any match found, it executes. 
+
+ *Program* :
+#+BEGIN_EXAMPLE
+#include <stdio.h> 
+#include <conio.h> 
+void main() 
+{ 
+int no; 
+printf("\n Enter any number from 1 to 3 :"); 
+scanf("%d",&no); 
+switch(no) 
+{ 
+case 1: 
+printf("\n It is 1 !"); 
+break; 
+case 2: 
+printf("\n It is 2 !"); 
+break; case 3: 
+printf("\n It is 3 !"); 
+break; 
+default: 
+printf("\n Invalid number !"); 
+} 
+} 
+#+END_EXAMPLE
+ *Output 1* : 
+Enter any number from 1 to 3 : 3 
+
+It is 3 !
+
+ *Output 2* : 
+Enter any number from 1 to 3 : 5 
+
+Invalid number !
+
+** Rules for Declaration of switch case: 
+ - The case label should be integer or character constant. 
+ - Each compound statement of a switch case should contain break statement to exit from case. 
+ - Case labels must end with (:) colon. 
+** Advantages of switch case: 
+ - Easy to use. 
+ - Easy to find out errors. 
+ - Debugging is made easy in switch case. 
+ - Complexity of a program is minimized. 
+
+
