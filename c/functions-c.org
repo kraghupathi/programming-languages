@@ -46,7 +46,7 @@ void main()
  *returned_type* : return types are the type of data that is returned by the
   function. If nothing is retruned then the type is void
 
- *argument lise* : argument list contains variables names along with their data
+ *argument list* : argument list contains variables names along with their data
   types. These arguments are inputs for the function.
 
  *Syntax* :
@@ -252,7 +252,7 @@ x=30
 #+END_EXAMPLE
  *Note:* There is no change in the values of a and b before and after the
   function execution.
-*** Call­by­Reference
+*** CallÂ­byÂ­Reference
 In this method, the actual values are not passed, instead of their values
 addresses are passed to a calling function. Here, no values are copied as the
 memory locations themselves are referenced. If any modification is made to the
@@ -281,9 +281,9 @@ main()
 int a,b; 
 int hi(int *x,int *y);  //function prototype 
 a=10;b=20; 
-printf("­­­­­­­­Before calling function­­­­­­­­­­­\n\ta=%d\tb=%d\n",a,b);  //Before calling function 
+printf("Â­Â­Â­Â­Â­Â­Â­Â­Before calling functionÂ­Â­Â­Â­Â­Â­Â­Â­Â­Â­Â­\n\ta=%d\tb=%d\n",a,b);  //Before calling function 
 hi(&a,&b);  //function call 
-printf("­­­­­­­­After calling function­­­­­­­­­­­\n\ta=%d\tb=%d\n",a,b);   //after calling function 
+printf("Â­Â­Â­Â­Â­Â­Â­Â­After calling functionÂ­Â­Â­Â­Â­Â­Â­Â­Â­Â­Â­\n\ta=%d\tb=%d\n",a,b);   //after calling function 
 } 
 int hi(int *x,int *y) 
 { 
@@ -295,8 +295,8 @@ temp=*x;
 #+END_EXAMPLE
  *Output* :
 #+BEGIN_EXAMPLE
-­­­­­­­­Before calling function­­­­­­­­­­­ 
+Â­Â­Â­Â­Â­Â­Â­Â­Before calling functionÂ­Â­Â­Â­Â­Â­Â­Â­Â­Â­Â­ 
    a=10 b=20 
-­­­­­­­­After calling function­­­­­­­­­­­ 
+Â­Â­Â­Â­Â­Â­Â­Â­After calling functionÂ­Â­Â­Â­Â­Â­Â­Â­Â­Â­Â­ 
    a=20 b=10 
 #+END_EXAMPLE

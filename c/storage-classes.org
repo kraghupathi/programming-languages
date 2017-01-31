@@ -149,7 +149,7 @@ Automatic variable value : 2    Static variable value : 3
 
 Automatic variable value : 2    Static variable value : 4
 ** External Storage Class
- + *Keyword *: extern 
+ + *Keyword* : extern 
  + *Storage Location* : Main memory 
  + *Initial Value* : Zero 
  + *Life* : Until the program ends. 
